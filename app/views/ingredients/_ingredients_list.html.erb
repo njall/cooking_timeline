@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Quantity metric</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% ingredients.each do |ingredient| %>
+      <tr>
+	<% if !ingredient.recipe.nil? %>
+        <td><%= ingredient.name %></td>
+        <td><%= ingredient.quantity %></td>
+        <td><%= ingredient.quantity_metric %></td>
+        <td><%= ingredient.state %></td>
+        <td><%= link_to 'Show', recipe_ingredient_path(ingredient.recipe, ingredient) %></td>
+        <td><%= link_to 'Edit', edit_recipe_ingredient_path(ingredient.recipe.id, ingredient.id) %></td>
+        <td><%= link_to 'Destroy', recipe_ingredient_path(ingredient.recipe.id, ingredient.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

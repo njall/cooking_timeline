@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1> How to make a <b><%= @recipe.name %></b></h1>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
+
+<h2> What you'll need </h2>
+<%= render "ingredients/ingredients_list", :ingredients => @recipe.ingredients %>
+
+Stick some more ingredients in <%= link_to 'slap n tickle', new_recipe_ingredient_path %>
